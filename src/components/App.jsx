@@ -27,6 +27,10 @@ const App = () => {
   const filterContact = e => {
     setFilter(e.target.value);
   };
+  const filteredContacts = contacts.filter(contact =>
+  contact.name.toLowerCase().includes(filter.toLowerCase())
+);
+
 
   const formSubmitHandler = ({ name, number }) => {
     const newContact = {
@@ -59,7 +63,7 @@ const App = () => {
             filterContact={filterContact}
           />
           <ContactList
-            contacts={contacts}
+            contacts={filteredContacts}
             deleteContact={deleteContact}
           />
         </Section>
